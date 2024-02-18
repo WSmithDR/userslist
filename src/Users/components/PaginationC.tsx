@@ -11,7 +11,7 @@ interface PaginationProps {
 const PaginationC: React.FC<PaginationProps> = ({ count, page, onChange }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1} minHeight={100}>
+      <Grid container spacing={0.5} minHeight={150}>
         <Grid xs display="flex" justifyContent="center" alignItems="center">
           <Stack spacing={10}>
             <Pagination

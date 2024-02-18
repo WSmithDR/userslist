@@ -1,19 +1,23 @@
-import { Avatar, TableBody, TableCell, TableRow } from "@mui/material";
-import * as React from "react";
+import { TableBody } from "@mui/material";
+import React from 'react';
+import User from "./User";
 
-const Main: React.FC<{ currentUsers: Array<object> }> = ({ currentUsers }) => {
+interface User {
+  id: string;
+  avatar: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+}
+
+interface MainProps {
+  currentUsers: User[];
+}
+
+const Main: React.FC<MainProps> = ({ currentUsers }) => {
   return (
     <TableBody>
-      {currentUsers.map((user: object, index: number) => (
-        <TableRow hover key={index}>
-          <TableCell>
-            <Avatar alt={user.id} src={user.avatar} />
-          </TableCell>
-          <TableCell>{user.first_name}</TableCell>
-          <TableCell>{user.last_name}</TableCell>
-          <TableCell>{user.email}</TableCell>
-        </TableRow>
-      ))}
+      {currentUsers.map((user, index) => <User key={index} user={user}/>)}
     </TableBody>
   );
 };
